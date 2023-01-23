@@ -1,0 +1,22 @@
+# configuration file with parameters
+CONFIG:
+
+    outPath: "/home/pi/WROMY/data/"
+    outFile: "WROMY_maintenance.log"
+    samplePeriod: 10  # seconds
+    dataBufferPoints: 20
+
+    WS9:
+        thresholds: [2, 22] # dark-daylight  &  daylight-light
+    WS8:
+        thresholds: [5, 99] # dark-daylight  &  daylight-light
+    WS7:
+        thresholds: [5, 22] # dark-daylight  &  daylight-light
+    WS6:
+        thresholds: [5, 17] # dark-daylight  &  daylight-light
+    WS5:
+        thresholds: [2, 27] # dark-daylight  &  daylight-light
+    WS4:
+        thresholds: [5, 23] # dark-daylight  &  daylight-light
+    WS1:
+        thresholds: [5, 20] # dark-daylight  &  daylight-light
