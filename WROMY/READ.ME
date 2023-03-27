@@ -1,0 +1,75 @@
+#
+# Readme file of the WROMY acquistion scripts. 
+#
+#
+# by Andreas Brotzer (2023)
+# ____________________________________________
+#
+# This directory (~/WROMY) should contain: 
+#
+# -> data/
+#    - Logfiles/
+#    - WS?.D/
+#    - LX?.D/
+#
+# -> status_check_of_raspi.sh
+#
+# -> bh1750.yaml
+# -> read_bh1750.py
+# -> read_bh1750.service
+#
+# -> read_lambrecht.py
+# -> read_lambrecht.service
+#
+# -> acoustic_radon_warning.py (only important for WS1!)
+# -> read_wave.py (only important for WS1!)
+#
+# -> checkprocess.sh (old)
+# -> startup.sh (old)
+#
+#
+# ____________________________________________
+#
+# Several cron jobs routinely start checkprocess.sh and startup.sh at reboot. Data transmission to server taupo is done using a rsync command in crontab. Every 10 minutes the files are updated to /import/freenas-ffb-01-data/romy_archive/... 
+#
+# - startup.sh
+# launches acquisition scripts using screen sessions 
+#
+# - checkprocess.sh
+# regularily checks if the processes are still running. If not, it tries to restart them several times before shutting down. Notifications are send via mail using "WROMY-LOG" as a subject.
+# 
+# - status_check_of_rapsi.sh
+# writes current raspberry pi status to status.tmp and sends it via mail if error is found.
+#
+# ____________________________________________
+# SENSOR 1: THP by Lambrecht
+#
+# -> acquisition via: read_lambrecht.py
+# -> acquistion is started via systemctl service
+# 
+# check via:  sudo systemctl status read_lambrecht.service
+#
+# This sensor measures the air temperature, air pressure and relative humidity and outputs three strings which are combined and formatted and stored in: ./data/BW.WROMY.WSX.<year>.<doy> 
+# 
+# Logfile for this script is written to ./data/Logfiles/WROMY_WS?_<year>.log.
+#
+#
+# ____________________________________________
+# SENSOR 2: BH1750 Light Sensor
+#
+# This sensor determines the light intensity and has to thresholds set in the configuration file: bh1750.yaml, which are used to descriminate between closed lid (dark) and open lid (daylight) of the shafts or switched on lights (light on). A time stamp with status report is written to: maintenance.log  
+#
+# -> acquisition via: read_bh1750.py
+# -> acquistion is started via systemctl service
+# 
+# check via:  sudo systemctl status read_bh1750.service
+#
+# ____________________________________________
+# SENSOR 3: Radon Detector by Airthings (only WS1)
+#
+# -> acquisition via: read_wave.py
+#
+# This sensor is only available for raspi-romy-01 (lowermost central shaft) and communicating via bluetooth. A longterm and shortterm Radon concentration is measured as well as temperature and humidity. A fo#
+#
+#
+# END OF FILE
