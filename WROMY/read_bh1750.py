@@ -150,7 +150,7 @@ def main():
 	config = __readConfig(path_to_config, config_file)
 
 	## adjust output file
-	config['outFile'] = config['outFile'][:5]+str(pi_num)+config['outFile'][5:]
+	#config['outFile'] = f"WS{str(pi_num)}.txt"
 
 	## create data buffer
 	dataBuffer = collections.deque(zeros(config.get('dataBufferPoints')), maxlen=config.get('dataBufferPoints'))
@@ -175,7 +175,7 @@ def main():
 
 		## update names
 		config['outPathData'] = config.get('outPath')+f"LX{pi_num}.D/{datetime.utcnow().year}/"
-
+		config['outFileLog'] = f"WROMY_LX{pi_num}_{datetime.utcnow().year}.log"
 
 		## check if output path exists
 		if not Path(config.get('outPathData')).exists():

@@ -1,9 +1,7 @@
 # configuration file with parameters
 CONFIG:
     outPath: "/home/pi/WROMY/data/"
-    outFile: "WROMY.txt"
     outPathLog: "/home/pi/WROMY/data/Logfiles/"
-    outFileLog: "WROMY_LX_maintenance.log"
     samplePeriod: 10  # seconds
     dataBufferPoints: 20
 
