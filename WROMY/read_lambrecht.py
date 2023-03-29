@@ -164,7 +164,8 @@ def main(outpath):
     ## check if log file exits
     __checkLogFile(logpath, logname)
 
-    log.logging("START: started read_lambrecht.py")
+    msg = f'{datetime.utcnow().strftime("%Y%m%d, %H%M%S")}, START: started read_lambrecht.py'
+    log.logging(msg)
 
     while True:
 
