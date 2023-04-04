@@ -1,0 +1,22 @@
+# 
+# systemctl service to run read_bh1750.py
+#
+
+[Unit]
+Description=read_bh1750_service
+After=network.target
+
+
+[Service]
+User=pi
+#WorkingDirectory=/home/pi
+ExecStart=/usr/bin/python3 /home/pi/WROMY/read_bh1750.py
+#ExecReload=/usr/bin/python3 /root/romy_control_AB/romy_control.py -k graceful
+Type=simple
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
+
+# END OF FILE

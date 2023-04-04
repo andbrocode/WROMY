@@ -1,0 +1,21 @@
+# configuration file with parameters
+CONFIG:
+    outPath: "/home/pi/WROMY/data/"
+    outPathLog: "/home/pi/WROMY/data/Logfiles/"
+    samplePeriod: 10  # seconds
+    dataBufferPoints: 20
+
+    WS9:
+        thresholds: 2 # dark-daylight  &  daylight-light
+    WS8:
+        thresholds: 5 # dark-daylight  &  daylight-light
+    WS7:
+        thresholds: 5 # dark-daylight  &  daylight-light
+    WS6:
+        thresholds: 5 # dark-daylight  &  daylight-light
+    WS5:
+        thresholds: 2 # dark-daylight  &  daylight-light
+    WS4:
+        thresholds: 5 # dark-daylight  &  daylight-light
+    WS1:
+        thresholds: 5 # dark-daylight  &  daylight-light
